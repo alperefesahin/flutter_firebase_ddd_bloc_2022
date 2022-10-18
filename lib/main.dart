@@ -11,7 +11,7 @@ class AppWidget extends StatelessWidget {
       title: 'Material App',
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Maconst terial App Bar'),
+          title: const Text('Material App Bar'),
         ),
         body: const Center(
           child: Text('Hello World'),
