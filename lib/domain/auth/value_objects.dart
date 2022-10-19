@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:flutter_firebase_ddd_riverpod/domain/core/failures.dart';
-import 'package:flutter_firebase_ddd_riverpod/domain/core/value_objects.dart';
-import 'package:flutter_firebase_ddd_riverpod/domain/core/value_validators.dart';
+import 'package:flutter_firebase_ddd_bloc_2022/domain/core/failures.dart';
+import 'package:flutter_firebase_ddd_bloc_2022/domain/core/value_objects.dart';
+import 'package:flutter_firebase_ddd_bloc_2022/domain/core/value_validators.dart';
 import 'package:fpdart/fpdart.dart';
 
 class EmailAddress extends ValueObject<String> {

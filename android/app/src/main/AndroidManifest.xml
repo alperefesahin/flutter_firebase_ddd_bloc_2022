@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.flutter_firebase_ddd_riverpod">
+    package="com.example.flutter_firebase_ddd_bloc_2022">
    <application
-        android:label="flutter_firebase_ddd_riverpod"
+        android:label="flutter_firebase_ddd_bloc_2022"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
