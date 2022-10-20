@@ -1,4 +1,4 @@
-name: flutter_firebase_ddd_bloc_2022
+name: flutter_firebase_ddd_riverpod
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -34,7 +34,11 @@ dependencies:
   fpdart: ^0.3.0
   freezed_annotation: ^2.2.0
   flutter_riverpod: ^2.0.2
+<<<<<<< HEAD
   flutter_bloc: ^8.1.1
+=======
+  
+>>>>>>> parent of 9fd1394 (change app package name)
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2

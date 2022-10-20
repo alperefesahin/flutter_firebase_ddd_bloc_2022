@@ -1,4 +1,4 @@
-package com.example.flutter_firebase_ddd_bloc_2022
+package com.example.flutter_firebase_ddd_riverpod
 
 import io.flutter.embedding.android.FlutterActivity
 
