@@ -1,9 +1,9 @@
 // ignore: depend_on_referenced_packages
 import 'package:bloc/bloc.dart';
-import 'package:flutter_firebase_ddd_riverpod/application/auth/sign_in_form/sign_in_form_state.dart';
-import 'package:flutter_firebase_ddd_riverpod/domain/auth/auth_failure.dart';
-import 'package:flutter_firebase_ddd_riverpod/domain/auth/i_auth_facade.dart';
-import 'package:flutter_firebase_ddd_riverpod/domain/auth/value_objects.dart';
+import 'package:flutter_firebase_ddd_bloc/application/auth/sign_in_form/sign_in_form_state.dart';
+import 'package:flutter_firebase_ddd_bloc/domain/auth/auth_failure.dart';
+import 'package:flutter_firebase_ddd_bloc/domain/auth/i_auth_facade.dart';
+import 'package:flutter_firebase_ddd_bloc/domain/auth/value_objects.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 

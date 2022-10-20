@@ -1,8 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_firebase_ddd_riverpod/domain/auth/auth_failure.dart';
-import 'package:flutter_firebase_ddd_riverpod/domain/auth/i_auth_facade.dart';
-import 'package:flutter_firebase_ddd_riverpod/domain/auth/value_objects.dart';
+import 'package:flutter_firebase_ddd_bloc/domain/auth/auth_failure.dart';
+import 'package:flutter_firebase_ddd_bloc/domain/auth/i_auth_facade.dart';
+import 'package:flutter_firebase_ddd_bloc/domain/auth/value_objects.dart';
+
 import 'package:fpdart/fpdart.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 

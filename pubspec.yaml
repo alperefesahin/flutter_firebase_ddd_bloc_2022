@@ -1,4 +1,4 @@
-name: flutter_firebase_ddd_riverpod
+name: flutter_firebase_ddd_bloc
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -37,6 +37,7 @@ dependencies:
   flutter_bloc: ^8.1.1
   google_sign_in: ^5.4.2
   firebase_auth: ^4.0.1
+  rename: ^2.0.1
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_firebase_ddd_riverpod/domain/core/errors.dart';
-import 'package:flutter_firebase_ddd_riverpod/domain/core/failures.dart';
+import 'package:flutter_firebase_ddd_bloc/domain/core/errors.dart';
+import 'package:flutter_firebase_ddd_bloc/domain/core/failures.dart';
 import 'package:fpdart/fpdart.dart';
 
 @immutable
