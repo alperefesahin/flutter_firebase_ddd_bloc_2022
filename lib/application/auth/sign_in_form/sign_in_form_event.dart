@@ -1,5 +1,4 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-part 'sign_in_form_event.freezed.dart';
+part of 'sign_in_form_bloc.dart';
 
 @freezed
 class SignInFormEvent with _$SignInFormEvent {
