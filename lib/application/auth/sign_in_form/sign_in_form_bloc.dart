@@ -1,13 +1,13 @@
 // ignore: depend_on_referenced_packages
 import 'package:bloc/bloc.dart';
-import 'package:flutter_firebase_ddd_bloc_2022/domain/auth/auth_failure.dart';
-import 'package:flutter_firebase_ddd_bloc_2022/domain/auth/i_auth_facade.dart';
-import 'package:flutter_firebase_ddd_bloc_2022/domain/auth/value_objects.dart';
+import 'package:flutter_firebase_ddd_riverpod/application/auth/sign_in_form/sign_in_form_state.dart';
+import 'package:flutter_firebase_ddd_riverpod/domain/auth/auth_failure.dart';
+import 'package:flutter_firebase_ddd_riverpod/domain/auth/i_auth_facade.dart';
+import 'package:flutter_firebase_ddd_riverpod/domain/auth/value_objects.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'sign_in_form_event.dart';
-part 'sign_in_form_state.dart';
 part 'sign_in_form_bloc.freezed.dart';
 
 class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {

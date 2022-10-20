@@ -1,4 +1,4 @@
-# flutter_firebase_ddd_bloc_2022
+# flutter_firebase_ddd_riverpod
 
 A new Flutter project.
 

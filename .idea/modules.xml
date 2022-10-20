@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/flutter_firebase_ddd_bloc_2022.iml" filepath="$PROJECT_DIR$/flutter_firebase_ddd_bloc_2022.iml" />
-      <module fileurl="file://$PROJECT_DIR$/android/flutter_firebase_ddd_bloc_2022_android.iml" filepath="$PROJECT_DIR$/android/flutter_firebase_ddd_bloc_2022_android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/flutter_firebase_ddd_riverpod.iml" filepath="$PROJECT_DIR$/flutter_firebase_ddd_riverpod.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android/flutter_firebase_ddd_riverpod_android.iml" filepath="$PROJECT_DIR$/android/flutter_firebase_ddd_riverpod_android.iml" />
     </modules>
   </component>
 </project>

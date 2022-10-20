@@ -1,4 +1,4 @@
-import 'package:flutter_firebase_ddd_bloc_2022/domain/core/failures.dart';
+import 'package:flutter_firebase_ddd_riverpod/domain/core/failures.dart';
 import 'package:fpdart/fpdart.dart';
 
 Either<ValueFailure<String>, String> validateEmailAddress(String input) {
