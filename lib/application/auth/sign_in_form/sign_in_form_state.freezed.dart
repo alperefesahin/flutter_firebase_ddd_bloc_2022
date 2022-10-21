@@ -19,7 +19,7 @@ mixin _$SignInFormState {
   EmailAddress get emailAddress => throw _privateConstructorUsedError;
   Password get password => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
-  bool get showErrorMessages => throw _privateConstructorUsedError;
+  AutovalidateMode? get showErrorMessages => throw _privateConstructorUsedError;
   Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
 
@@ -38,7 +38,7 @@ abstract class $SignInFormStateCopyWith<$Res> {
       {EmailAddress emailAddress,
       Password password,
       bool isSubmitting,
-      bool showErrorMessages,
+      AutovalidateMode? showErrorMessages,
       Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption});
 }
 
@@ -58,7 +58,7 @@ class _$SignInFormStateCopyWithImpl<$Res, $Val extends SignInFormState>
     Object? emailAddress = null,
     Object? password = null,
     Object? isSubmitting = null,
-    Object? showErrorMessages = null,
+    Object? showErrorMessages = freezed,
     Object? authFailureOrSuccessOption = null,
   }) {
     return _then(_value.copyWith(
@@ -74,10 +74,10 @@ class _$SignInFormStateCopyWithImpl<$Res, $Val extends SignInFormState>
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-      showErrorMessages: null == showErrorMessages
+      showErrorMessages: freezed == showErrorMessages
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as AutovalidateMode?,
       authFailureOrSuccessOption: null == authFailureOrSuccessOption
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
@@ -98,7 +98,7 @@ abstract class _$$_SignInFormStateCopyWith<$Res>
       {EmailAddress emailAddress,
       Password password,
       bool isSubmitting,
-      bool showErrorMessages,
+      AutovalidateMode? showErrorMessages,
       Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption});
 }
 
@@ -116,7 +116,7 @@ class __$$_SignInFormStateCopyWithImpl<$Res>
     Object? emailAddress = null,
     Object? password = null,
     Object? isSubmitting = null,
-    Object? showErrorMessages = null,
+    Object? showErrorMessages = freezed,
     Object? authFailureOrSuccessOption = null,
   }) {
     return _then(_$_SignInFormState(
@@ -132,10 +132,10 @@ class __$$_SignInFormStateCopyWithImpl<$Res>
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-      showErrorMessages: null == showErrorMessages
+      showErrorMessages: freezed == showErrorMessages
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as AutovalidateMode?,
       authFailureOrSuccessOption: null == authFailureOrSuccessOption
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
@@ -162,7 +162,7 @@ class _$_SignInFormState extends _SignInFormState {
   @override
   final bool isSubmitting;
   @override
-  final bool showErrorMessages;
+  final AutovalidateMode? showErrorMessages;
   @override
   final Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption;
 
@@ -206,7 +206,7 @@ abstract class _SignInFormState extends SignInFormState {
       {required final EmailAddress emailAddress,
       required final Password password,
       required final bool isSubmitting,
-      required final bool showErrorMessages,
+      required final AutovalidateMode? showErrorMessages,
       required final Option<Either<AuthFailure, Unit>>
           authFailureOrSuccessOption}) = _$_SignInFormState;
   _SignInFormState._() : super._();
@@ -218,7 +218,7 @@ abstract class _SignInFormState extends SignInFormState {
   @override
   bool get isSubmitting;
   @override
-  bool get showErrorMessages;
+  AutovalidateMode? get showErrorMessages;
   @override
   Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption;
   @override

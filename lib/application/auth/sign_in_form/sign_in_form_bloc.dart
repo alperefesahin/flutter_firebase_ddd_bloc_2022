@@ -1,5 +1,6 @@
 // ignore: depend_on_referenced_packages
 import 'package:bloc/bloc.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_firebase_ddd_bloc/application/auth/sign_in_form/sign_in_form_state.dart';
 import 'package:flutter_firebase_ddd_bloc/domain/auth/auth_failure.dart';
 import 'package:flutter_firebase_ddd_bloc/domain/auth/i_auth_facade.dart';
@@ -14,11 +15,14 @@ part 'sign_in_form_bloc.freezed.dart';
 @injectable
 class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
   SignInFormBloc(this._authFacade) : super(SignInFormState.initial()) {
-    on<SignInWithEmailAndPassword>(
+    on<SignInWithEmailAndPasswordPressed>(
       (event, emit) => signInWithEmailAndPassword(event, emit),
     );
-    on<RegisterWithEmailAndPassword>(
+    on<RegisterWithEmailAndPasswordPressed>(
       (event, emit) => registerWithEmailAndPassword(event, emit),
+    );
+    on<SignInWithGooglePressed>(
+      (event, emit) => signInWithGoogle(event, emit),
     );
     on<EmailChanged>(
       (event, emit) => changeEmailAddress(event, emit),
@@ -49,51 +53,9 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
   }
 
   Future<void> registerWithEmailAndPassword(
-      RegisterWithEmailAndPassword event, Emitter<SignInFormState> emit) async {
-    _performActionOnAuthFacadeWithEmailAndPassword(
-      right(event),
-      emit,
-      _authFacade.registerWithEmailAndPassword,
-    );
-  }
-
-  Future<void> signInWithEmailAndPassword(
-      SignInWithEmailAndPassword event, Emitter<SignInFormState> emit) async {
-    _performActionOnAuthFacadeWithEmailAndPassword(
-      left(event),
-      emit,
-      _authFacade.signInWithEmailAndPassword,
-    );
-  }
-
-  Future<void> signInWithGoogle(
-      PasswordChanged event, Emitter<SignInFormState> emit) async {
-    emit(
-      state.copyWith(
-        isSubmitting: true,
-        authFailureOrSuccessOption: none(),
-      ),
-    );
-
-    final failureOrSuccess = await _authFacade.signInWithGoogle();
-
-    emit(
-      state.copyWith(
-        isSubmitting: false,
-        authFailureOrSuccessOption: some(failureOrSuccess),
-      ),
-    );
-  }
-
-  Stream<SignInFormState> _performActionOnAuthFacadeWithEmailAndPassword(
-    Either<SignInWithEmailAndPassword, RegisterWithEmailAndPassword> event,
+    RegisterWithEmailAndPasswordPressed event,
     Emitter<SignInFormState> emit,
-    Future<Either<AuthFailure, Unit>> Function({
-      required EmailAddress emailAddress,
-      required Password password,
-    })
-        forwardedCall,
-  ) async* {
+  ) async {
     Either<AuthFailure, Unit>? failureOrSuccess;
 
     final isEmailValid = state.emailAddress.isValid();
@@ -107,7 +69,7 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
         ),
       );
 
-      failureOrSuccess = await forwardedCall(
+      failureOrSuccess = await _authFacade.registerWithEmailAndPassword(
         emailAddress: state.emailAddress,
         password: state.password,
       );
@@ -116,8 +78,61 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
     emit(
       state.copyWith(
         isSubmitting: false,
-        showErrorMessages: true,
+        showErrorMessages: AutovalidateMode.onUserInteraction,
         authFailureOrSuccessOption: optionOf(failureOrSuccess),
+      ),
+    );
+  }
+
+  Future<void> signInWithEmailAndPassword(
+    SignInWithEmailAndPasswordPressed event,
+    Emitter<SignInFormState> emit,
+  ) async {
+    Either<AuthFailure, Unit>? failureOrSuccess;
+
+    final isEmailValid = state.emailAddress.isValid();
+    final isPasswordValid = state.password.isValid();
+
+    if (isEmailValid && isPasswordValid) {
+      emit(
+        state.copyWith(
+          isSubmitting: true,
+          authFailureOrSuccessOption: none(),
+        ),
+      );
+
+      failureOrSuccess = await _authFacade.signInWithEmailAndPassword(
+        emailAddress: state.emailAddress,
+        password: state.password,
+      );
+    }
+
+    emit(
+      state.copyWith(
+        isSubmitting: false,
+        showErrorMessages: AutovalidateMode.onUserInteraction,
+        authFailureOrSuccessOption: optionOf(failureOrSuccess),
+      ),
+    );
+  }
+
+  Future<void> signInWithGoogle(
+    SignInWithGooglePressed event,
+    Emitter<SignInFormState> emit,
+  ) async {
+    emit(
+      state.copyWith(
+        isSubmitting: true,
+        authFailureOrSuccessOption: none(),
+      ),
+    );
+
+    final failureOrSuccess = await _authFacade.signInWithGoogle();
+
+    emit(
+      state.copyWith(
+        isSubmitting: false,
+        authFailureOrSuccessOption: some(failureOrSuccess),
       ),
     );
   }

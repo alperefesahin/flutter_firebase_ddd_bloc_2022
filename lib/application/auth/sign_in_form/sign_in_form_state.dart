@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_firebase_ddd_bloc/domain/auth/auth_failure.dart';
 import 'package:flutter_firebase_ddd_bloc/domain/auth/value_objects.dart';
 import 'package:fpdart/fpdart.dart';
@@ -10,7 +11,7 @@ class SignInFormState with _$SignInFormState {
     required EmailAddress emailAddress,
     required Password password,
     required bool isSubmitting,
-    required bool showErrorMessages,
+    required AutovalidateMode? showErrorMessages,
     required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
   }) = _SignInFormState;
 
@@ -20,7 +21,7 @@ class SignInFormState with _$SignInFormState {
         emailAddress: EmailAddress(""),
         password: Password(""),
         isSubmitting: false,
-        showErrorMessages: false,
+        showErrorMessages: AutovalidateMode.disabled,
         authFailureOrSuccessOption: none(),
       );
 }
