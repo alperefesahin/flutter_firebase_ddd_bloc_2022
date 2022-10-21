@@ -1,9 +1,10 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:flutter/services.dart';
 import 'package:flutter_firebase_ddd_bloc/domain/auth/auth_failure.dart';
 import 'package:flutter_firebase_ddd_bloc/domain/auth/i_auth_facade.dart';
+import 'package:flutter_firebase_ddd_bloc/domain/auth/user.dart';
 import 'package:flutter_firebase_ddd_bloc/domain/auth/value_objects.dart';
-
+import 'package:flutter_firebase_ddd_bloc/infrastructure/auth/firebase_user_mapper.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
@@ -12,8 +13,18 @@ import 'package:injectable/injectable.dart';
 class FirebaseAuthFacade implements IAuthFacade {
   FirebaseAuthFacade(this._firebaseAuth, this._googleSignIn);
 
-  final FirebaseAuth _firebaseAuth;
+  final firebase_auth.FirebaseAuth _firebaseAuth;
   final GoogleSignIn _googleSignIn;
+
+  @override
+  Future<Option<User>> getSignedInUser() async =>
+      optionOf(_firebaseAuth.currentUser?.toDomain());
+
+  @override
+  Future<void> signOut() => Future.wait([
+        _googleSignIn.signOut(),
+        _firebaseAuth.signOut(),
+      ]);
 
   @override
   Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword({
@@ -76,7 +87,7 @@ class FirebaseAuthFacade implements IAuthFacade {
 
       final googleAuth = await googleUser.authentication;
 
-      final authCredential = GoogleAuthProvider.credential(
+      final authCredential = firebase_auth.GoogleAuthProvider.credential(
         idToken: googleAuth.idToken,
         accessToken: googleAuth.accessToken,
       );
