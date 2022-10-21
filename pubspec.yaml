@@ -41,6 +41,7 @@ dependencies:
   get_it: ^7.2.0
   another_flushbar: ^1.12.29
   uuid: ^3.0.6
+  auto_route: ^5.0.2
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
@@ -51,6 +52,7 @@ dev_dependencies:
   freezed: ^2.2.0
   build_runner: ^2.3.0
   injectable_generator: ^1.5.4
+  auto_route_generator: ^5.0.2
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
