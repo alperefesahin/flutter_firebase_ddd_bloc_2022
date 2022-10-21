@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_firebase_ddd_bloc/application/auth/bloc/auth_bloc.dart';
+import 'package:flutter_firebase_ddd_bloc/injection.dart';
+import 'package:flutter_firebase_ddd_bloc/presentation/routes/router.gr.dart';
 import 'package:flutter_firebase_ddd_bloc/presentation/sign_in/sign_in_page.dart';
 
 class AppWidget extends StatelessWidget {
@@ -6,18 +10,29 @@ class AppWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Notes',
-      home: SignInPage(),
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData.light().copyWith(
-        primaryColor: Colors.green[800],
-        colorScheme: ColorScheme.fromSwatch().copyWith(
-          secondary: Colors.blueAccent,
+    final _appRouter = AppRouter();
+
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) =>
+              getIt<AuthBloc>()..add(const AuthEvent.authCheckRequested()),
         ),
-        inputDecorationTheme: InputDecorationTheme(
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8),
+      ],
+      child: MaterialApp.router(
+        title: 'Notes',
+        routerDelegate: _appRouter.delegate(),
+        routeInformationParser: _appRouter.defaultRouteParser(),
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData.light().copyWith(
+          primaryColor: Colors.green[800],
+          colorScheme: ColorScheme.fromSwatch().copyWith(
+            secondary: Colors.blueAccent,
+          ),
+          inputDecorationTheme: InputDecorationTheme(
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
           ),
         ),
       ),
