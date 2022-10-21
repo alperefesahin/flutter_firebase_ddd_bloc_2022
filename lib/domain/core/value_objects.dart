@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_firebase_ddd_bloc/domain/core/errors.dart';
 import 'package:flutter_firebase_ddd_bloc/domain/core/failures.dart';
 import 'package:fpdart/fpdart.dart';
+import 'package:uuid/uuid.dart';
 
 @immutable
 abstract class ValueObject<T> {
@@ -31,4 +32,24 @@ abstract class ValueObject<T> {
 
   @override
   String toString() => 'ValueObject(value: $value)';
+}
+
+class UniqueId extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory UniqueId() {
+    return UniqueId._(
+      right(const Uuid().v1()),
+    );
+  }
+
+  factory UniqueId.fromUniqueString(String? uniqueId) {
+    assert(uniqueId != null);
+    return UniqueId._(
+      right(uniqueId!),
+    );
+  }
+
+  const UniqueId._(this.value);
 }

@@ -40,6 +40,7 @@ dependencies:
   injectable: ^1.5.3
   get_it: ^7.2.0
   another_flushbar: ^1.12.29
+  uuid: ^3.0.6
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
