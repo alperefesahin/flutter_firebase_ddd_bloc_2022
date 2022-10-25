@@ -26,6 +26,9 @@ class AppWidget extends StatelessWidget {
         routeInformationParser: _appRouter.defaultRouteParser(),
         debugShowCheckedModeBanner: false,
         theme: ThemeData.light().copyWith(
+          floatingActionButtonTheme: FloatingActionButtonThemeData(
+            backgroundColor: Colors.blue[900],
+          ),
           primaryColor: Colors.green[800],
           colorScheme: ColorScheme.fromSwatch().copyWith(
             secondary: Colors.blueAccent,
