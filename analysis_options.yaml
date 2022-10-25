@@ -26,3 +26,4 @@ analyzer:
     missing_required_param: error
     must_be_immutable: error
     always_declare_return_types: warning
+    invalid_annotation_target: ignore
