@@ -7,6 +7,7 @@ import 'package:kt_dart/kt.dart';
 
 part 'todo_item_presentation_classes.freezed.dart';
 
+// FormTodos is coming from the 28th course
 class FormTodos extends ValueNotifier<KtList<TodoItemPrimitive>> {
   FormTodos() : super(emptyList<TodoItemPrimitive>());
 }
