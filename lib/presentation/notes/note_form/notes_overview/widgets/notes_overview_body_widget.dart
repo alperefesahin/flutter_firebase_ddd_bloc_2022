@@ -30,7 +30,6 @@ class NotesOverviewBody extends StatelessWidget {
             );
           },
           loadFailure: (state) {
-            debugPrint(state.toString());
             return CriticalFailureDisplay(
               failure: state.noteFailure,
             );
