@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_firebase_ddd_bloc/domain/notes/i_note_repository.dart';
 import 'package:flutter_firebase_ddd_bloc/domain/notes/note.dart';
 import 'package:flutter_firebase_ddd_bloc/domain/notes/note_failure.dart';
@@ -30,13 +29,16 @@ class NoteRepository implements INoteRepository {
                 .toImmutableList(),
           ),
         )
-        .onErrorReturnWith((e, _) {
-      if (e is PlatformException && e.message!.contains('PERMISSION_DENIED')) {
-        return left(const NoteFailure.insufficientPermission());
-      } else {
-        return left(const NoteFailure.unexpected());
-      }
-    });
+        .onErrorReturnWith(
+      (e, _) {
+        if (e is FirebaseException &&
+            e.message!.contains('PERMISSION_DENIED')) {
+          return left(const NoteFailure.insufficientPermission());
+        } else {
+          return left(const NoteFailure.unexpected());
+        }
+      },
+    );
   }
 
   @override
