@@ -98,7 +98,7 @@ class NoteFormBloc extends Bloc<NoteFormEvent, NoteFormState> {
     emit(
       state.copyWith(
         isSaving: false,
-        showErrorMessages: true,
+        showErrorMessages: AutovalidateMode.onUserInteraction,
         saveFailureOrSuccessOption: optionOf(failureOrSuccess),
       ),
     );

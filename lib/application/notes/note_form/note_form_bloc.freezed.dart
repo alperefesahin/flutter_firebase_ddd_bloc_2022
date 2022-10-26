@@ -820,7 +820,7 @@ abstract class Saved implements NoteFormEvent {
 /// @nodoc
 mixin _$NoteFormState {
   Note get note => throw _privateConstructorUsedError;
-  bool get showErrorMessages => throw _privateConstructorUsedError;
+  AutovalidateMode? get showErrorMessages => throw _privateConstructorUsedError;
   bool get isEditing => throw _privateConstructorUsedError;
   bool get isSaving => throw _privateConstructorUsedError;
   Option<Either<NoteFailure, Unit>> get saveFailureOrSuccessOption =>
@@ -839,7 +839,7 @@ abstract class $NoteFormStateCopyWith<$Res> {
   @useResult
   $Res call(
       {Note note,
-      bool showErrorMessages,
+      AutovalidateMode? showErrorMessages,
       bool isEditing,
       bool isSaving,
       Option<Either<NoteFailure, Unit>> saveFailureOrSuccessOption});
@@ -861,7 +861,7 @@ class _$NoteFormStateCopyWithImpl<$Res, $Val extends NoteFormState>
   @override
   $Res call({
     Object? note = null,
-    Object? showErrorMessages = null,
+    Object? showErrorMessages = freezed,
     Object? isEditing = null,
     Object? isSaving = null,
     Object? saveFailureOrSuccessOption = null,
@@ -871,10 +871,10 @@ class _$NoteFormStateCopyWithImpl<$Res, $Val extends NoteFormState>
           ? _value.note
           : note // ignore: cast_nullable_to_non_nullable
               as Note,
-      showErrorMessages: null == showErrorMessages
+      showErrorMessages: freezed == showErrorMessages
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as AutovalidateMode?,
       isEditing: null == isEditing
           ? _value.isEditing
           : isEditing // ignore: cast_nullable_to_non_nullable
@@ -909,7 +909,7 @@ abstract class _$$_NoteFormStateCopyWith<$Res>
   @useResult
   $Res call(
       {Note note,
-      bool showErrorMessages,
+      AutovalidateMode? showErrorMessages,
       bool isEditing,
       bool isSaving,
       Option<Either<NoteFailure, Unit>> saveFailureOrSuccessOption});
@@ -930,7 +930,7 @@ class __$$_NoteFormStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? note = null,
-    Object? showErrorMessages = null,
+    Object? showErrorMessages = freezed,
     Object? isEditing = null,
     Object? isSaving = null,
     Object? saveFailureOrSuccessOption = null,
@@ -940,10 +940,10 @@ class __$$_NoteFormStateCopyWithImpl<$Res>
           ? _value.note
           : note // ignore: cast_nullable_to_non_nullable
               as Note,
-      showErrorMessages: null == showErrorMessages
+      showErrorMessages: freezed == showErrorMessages
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as AutovalidateMode?,
       isEditing: null == isEditing
           ? _value.isEditing
           : isEditing // ignore: cast_nullable_to_non_nullable
@@ -973,7 +973,7 @@ class _$_NoteFormState implements _NoteFormState {
   @override
   final Note note;
   @override
-  final bool showErrorMessages;
+  final AutovalidateMode? showErrorMessages;
   @override
   final bool isEditing;
   @override
@@ -1018,7 +1018,7 @@ class _$_NoteFormState implements _NoteFormState {
 abstract class _NoteFormState implements NoteFormState {
   const factory _NoteFormState(
       {required final Note note,
-      required final bool showErrorMessages,
+      required final AutovalidateMode? showErrorMessages,
       required final bool isEditing,
       required final bool isSaving,
       required final Option<Either<NoteFailure, Unit>>
@@ -1027,7 +1027,7 @@ abstract class _NoteFormState implements NoteFormState {
   @override
   Note get note;
   @override
-  bool get showErrorMessages;
+  AutovalidateMode? get showErrorMessages;
   @override
   bool get isEditing;
   @override
