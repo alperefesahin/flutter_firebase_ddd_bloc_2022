@@ -11,7 +11,7 @@ part 'note_dtos.freezed.dart';
 part 'note_dtos.g.dart';
 
 @freezed
-abstract class NoteDto implements _$NoteDto {
+class NoteDto with _$NoteDto {
   const factory NoteDto({
     @JsonKey(ignore: true) String? id,
     required String body,

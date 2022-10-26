@@ -1,7 +1,7 @@
 part of 'note_form_bloc.dart';
 
 @freezed
-abstract class NoteFormState with _$NoteFormState {
+class NoteFormState with _$NoteFormState {
   const factory NoteFormState({
     required Note note,
     required AutovalidateMode? showErrorMessages,
