@@ -1,9 +1,5 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter_firebase_ddd_bloc/domain/auth/auth_failure.dart';
-import 'package:flutter_firebase_ddd_bloc/domain/auth/value_objects.dart';
-import 'package:fpdart/fpdart.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
-part 'sign_in_form_state.freezed.dart';
+
+part of "sign_in_form_bloc.dart";
 
 @freezed
 class SignInFormState with _$SignInFormState {

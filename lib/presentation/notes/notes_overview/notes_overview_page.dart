@@ -6,8 +6,8 @@ import 'package:flutter_firebase_ddd_bloc/application/auth/auth_bloc.dart';
 import 'package:flutter_firebase_ddd_bloc/application/notes/note_actor/note_actor_bloc.dart';
 import 'package:flutter_firebase_ddd_bloc/application/notes/note_watcher/note_watcher_bloc.dart';
 import 'package:flutter_firebase_ddd_bloc/injection.dart';
-import 'package:flutter_firebase_ddd_bloc/presentation/notes/note_form/notes_overview/widgets/notes_overview_body_widget.dart';
-import 'package:flutter_firebase_ddd_bloc/presentation/notes/note_form/notes_overview/widgets/uncompleted_switch.dart';
+import 'package:flutter_firebase_ddd_bloc/presentation/notes/notes_overview/widgets/notes_overview_body_widget.dart';
+import 'package:flutter_firebase_ddd_bloc/presentation/notes/notes_overview/widgets/uncompleted_switch.dart';
 import 'package:flutter_firebase_ddd_bloc/presentation/routes/router.gr.dart';
 
 class NotesOverviewPage extends StatelessWidget {
