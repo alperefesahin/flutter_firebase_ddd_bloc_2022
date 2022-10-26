@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
-import 'package:flutter/services.dart';
 import 'package:flutter_firebase_ddd_bloc/domain/auth/auth_failure.dart';
 import 'package:flutter_firebase_ddd_bloc/domain/auth/i_auth_facade.dart';
 import 'package:flutter_firebase_ddd_bloc/domain/auth/user.dart';
