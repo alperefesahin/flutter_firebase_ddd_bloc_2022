@@ -7,6 +7,7 @@ import 'package:flutter_firebase_ddd_bloc/presentation/notes/note_form/misc/buil
 import 'package:flutter_firebase_ddd_bloc/presentation/notes/note_form/misc/todo_item_presentation_classes.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:implicitly_animated_reorderable_list_2/implicitly_animated_reorderable_list_2.dart';
 import 'package:kt_dart/collection.dart';
 
 import 'package:provider/provider.dart';
@@ -33,12 +34,11 @@ class TodoList extends StatelessWidget {
           ).show(context);
         }
       },
-      // ImplicitlyAnimatedReorderableList for 31th video, to keep it simple I just copied it.
       child: Consumer<FormTodos>(
         builder: (context, formTodos, child) {
           return ImplicitlyAnimatedReorderableList<TodoItemPrimitive>(
             shrinkWrap: true,
-            removeDuration: const Duration(),
+            removeDuration: Duration.zero,
             items: formTodos.value.asList(),
             areItemsTheSame: (oldItem, newItem) => oldItem.id == newItem.id,
             onReorderFinished: (item, from, to, newItems) {
